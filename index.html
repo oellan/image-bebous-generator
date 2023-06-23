@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet"
+          href="/src/main.css">
+</head>
+<body>
+<form id="generator-form">
+    <div>
+        <label for="start_color">Couleur de départ du dégradé</label>
+        <input type="color" id="start_color" name="start_color">
+        <label for="end_color">Couleur de fin du dégradé</label>
+        <input type="color" id="end_color" name="end_color">
+        <div id="gradient-preview"></div>
+    </div>
+    <div>
+    </div>
+    <div>
+        <label for="content_xml">Contenu</label>
+        <textarea id="content_xml" name="content_xml" required minlength="1"></textarea>
+    </div>
+    <div>
+        <label for="image_url">URL de l'image</label>
+        <input type="url" id="image_url" name="image_url" required minlength="1">
+    </div>
+    <input type="submit">
+</form>
+<canvas id="app"
+        style="display: none"
+        width="2048"
+        height="2048"></canvas>
+<script type="module"
+        src="/src/main.ts"></script>
+</body>
+</html>
