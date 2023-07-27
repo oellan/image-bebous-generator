@@ -1,7 +1,7 @@
 import {createImage} from './CK';
 
 const formElement = document.getElementById('generator-form')! as HTMLFormElement;
-const gradientPreview = formElement.querySelector('#gradient-preview')! as HTMLDivElement;
+const gradientPreview = document.querySelector('#gradient-preview')! as HTMLDivElement;
 const startColorInput = formElement.querySelector('#start_color')! as HTMLInputElement;
 const endColorInput = formElement.querySelector('#end_color')! as HTMLInputElement;
 const imageUrlInput = formElement.querySelector('#image_url')! as HTMLInputElement;
@@ -11,16 +11,20 @@ imageUrlInput.addEventListener('change', updateImagePreview);
 formElement.addEventListener('submit', async (evt) => {
     evt.preventDefault();
     const data = Object.fromEntries([...new FormData(formElement)]) as { [k: string]: string };
-    console.log(data);
+    evt.submitter!.setAttribute('disabled', 'true');
     await createImage({
         imageUrl: data['image_url'],
         contentXml: data['content_xml'],
         startColor: toRGB(data['start_color']),
         endColor: toRGB(data['end_color']),
     });
+    gradientPreview.style.display = 'none';
+    evt.submitter!.removeAttribute('disabled');
 });
 
 function updateGradientPreview() {
+    document.getElementById('app')!.style.setProperty('--start-color', startColorInput.value);
+    document.getElementById('app')!.style.setProperty('--end-color', endColorInput.value);
     const start = startColorInput.value;
     const end = endColorInput.value;
     gradientPreview.style.background = `linear-gradient(to bottom right, ${start}, ${end})`;

@@ -10,7 +10,7 @@ type FetchAll = [CanvasKit, ArrayBuffer, ArrayBuffer, ArrayBuffer, ArrayBuffer]
 
 const BORDER_THICKNESS = 96
 
-const canvasElement = document.getElementById('app')! as HTMLCanvasElement;
+const canvasElement = document.getElementById('appCanvas')! as HTMLCanvasElement;
 
 type CreateImageArg = {
     imageUrl: string,
@@ -79,7 +79,7 @@ export async function createImage(args: CreateImageArg) {
                     shadowParagraphBuilder.addText('\n');
                     return;
                 }
-                const lineFragments = (lineChild.textContent ?? '').split(/(\p{Emoji}+)/gu)
+                const lineFragments = (lineChild.textContent ?? '').replace(/\n/g, '').split(/(\p{Emoji}+)/gu)
                     .filter((s) => s.length > 0)
                     .map((s) => ({
                         text: s,
