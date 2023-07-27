@@ -1,1 +1,0 @@
-*{margin:0;padding:0;--image-url: "white" }#app{display:block;margin:0 auto;max-width:min(100vw,100vh)}label{display:block}input[type=color]{display:none}#gradient-preview{aspect-ratio:1;height:300px;position:relative}#gradient-preview:after{content:"";position:absolute;top:10%;left:10%;width:80%;height:80%;background:var(--image-url) center / cover}

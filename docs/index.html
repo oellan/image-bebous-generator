@@ -2,37 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0"/>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"/>
     
-  <script type="module" crossorigin src="./assets/index-5be108b7.js"></script>
-  <link rel="stylesheet" href="./assets/index-f9197e3f.css">
+  <script type="module" crossorigin src="./assets/index-471b6f1b.js"></script>
+  <link rel="stylesheet" href="./assets/index-2b454d08.css">
 </head>
 <body>
-<form id="generator-form">
-    <div>
-        <label for="start_color">Couleur de départ du dégradé</label>
-        <input type="color" id="start_color" name="start_color">
-        <label for="end_color">Couleur de fin du dégradé</label>
-        <input type="color" id="end_color" name="end_color">
+    <div id="app">
+        <form id="generator-form">
+            <div style="display: flex; flex-direction: column; gap: .5em;">
+                <label for="start_color">Couleur de départ du dégradé
+                    <span id="start_color_preview"></span></label>
+                <input type="color" id="start_color" name="start_color" value="#ffffff">
+                <label for="end_color">Couleur de fin du dégradé
+                    <span id="end_color_preview"></span></label>
+                <input type="color" id="end_color" name="end_color" value="#000000">
+            </div>
+            <div>
+                <label for="content_xml">Contenu</label>
+                <textarea id="content_xml" name="content_xml" required minlength="1"></textarea>
+            </div>
+            <div>
+                <label for="image_url">URL de l'image</label>
+                <input type="url" id="image_url" name="image_url" required minlength="1">
+            </div>
+            <input type="submit">
+        </form>
         <div id="gradient-preview"></div>
+        <canvas
+            id="appCanvas"
+            style="display: none"
+            width="2048"
+            height="2048"></canvas>
     </div>
-    <div>
-    </div>
-    <div>
-        <label for="content_xml">Contenu</label>
-        <textarea id="content_xml" name="content_xml" required minlength="1"></textarea>
-    </div>
-    <div>
-        <label for="image_url">URL de l'image</label>
-        <input type="url" id="image_url" name="image_url" required minlength="1">
-    </div>
-    <input type="submit">
-</form>
-<canvas id="app"
-        style="display: none"
-        width="2048"
-        height="2048"></canvas>
-
+    
 </body>
 </html>
