@@ -1,6 +1,6 @@
 import type {Canvas, CanvasKit, EmbindObject} from 'canvaskit-wasm';
-import CanvasKitInit from 'canvaskit-wasm/bin/profiling/canvaskit.js';
-import CanvasKitWasm from 'canvaskit-wasm/bin/profiling/canvaskit.wasm?url';
+import CanvasKitInit from 'canvaskit-wasm';
+import CanvasKitWasm from 'canvaskit-wasm/bin/canvaskit.wasm?url';
 import WorkSansRegularUrl from './font/WorkSans-Medium.ttf';
 import WorkSansBoldUrl from './font/WorkSans-Bold.ttf';
 import EmojiFontUrl from './font/NotoColorEmoji-Regular.ttf';
